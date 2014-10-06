@@ -11,11 +11,11 @@ public class Ranking {
 
 	// TODO privateなメンバ変数は必要に応じて追加
 	// TODO Tには適切なクラス名を記述
-	private ArrayList<Medals> results = new ArrayList<Medals>(); 
+	private ArrayList<Medals> results;
 
-	public Ranking(String country,String medal) {
+	public Ranking() {
 		//　TODO 必要な処理があれば追加
-	
+		results = new ArrayList<Medals>();
 	}
 
 	/**
@@ -27,6 +27,12 @@ public class Ranking {
 	public Medals getCountry(String country) {
 		// TODO このメソッドを実装
 
+		for(int i=0;i<results.size();i++){
+			if(results.equals(country)){
+				return results.get(i);
+			}		
+		}
+
 		return null;
 	}
 
@@ -37,8 +43,15 @@ public class Ranking {
 	 */
 	public void addMedal(String country, String medal) {
 		// TODO このメソッドを実装
-		if(getCountry != null){
-			return Medal;
+		Medals newMedal = new Medals(country);
+
+
+		if(getCountry(country) != null){
+			for(int i = 0; i < results.size(); i++){
+				results.get(i).add(medal);
+			}
+		}else{
+			results.add(newMedal);
 		}
 	}
 
